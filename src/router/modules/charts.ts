@@ -2,9 +2,10 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-21 16:15:32
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-21 16:20:24
+ * @LastEditTime: 2022-04-21 16:45:25
  */
-const charts = {
+import Layout from '@/layout/index.vue'
+ const charts = {
   path: '/charts',
   component: Layout,
   redirect: 'noRedirect',
@@ -16,21 +17,23 @@ const charts = {
   children: [
     {
       path: 'keyboard',
-      component: () => import('@/views/charts/keyboard'),
+      component: () => import('@/views/charts/keyboard.vue'),
       name: 'KeyboardChart',
       meta: { title: 'keyboardChart', noCache: true }
     },
     {
       path: 'line',
-      component: () => import('@/views/charts/line'),
+      component: () => import('@/views/charts/line.vue'),
       name: 'LineChart',
       meta: { title: 'lineChart', noCache: true }
     },
     {
       path: 'mix-chart',
-      component: () => import('@/views/charts/mix-chart'),
+      component: () => import('@/views/charts/mix-chart.vue'),
       name: 'MixChart',
       meta: { title: 'mixChart', noCache: true }
     }
   ]
 }
+
+export default charts
