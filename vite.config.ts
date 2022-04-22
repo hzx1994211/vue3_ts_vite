@@ -2,11 +2,13 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-18 16:44:51
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-18 17:58:26
- * @FilePath: \vite_vue3_ts\vite.config.ts
+ * @LastEditTime: 2022-04-22 15:47:09
  */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+// import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 //@ts-ignore
 import path from 'path'
 //@ts-ignore
@@ -25,7 +27,13 @@ export default defineConfig({
       threshold: 10240,
       algorithm: 'gzip',
       ext: '.gz',
-    })
+    }),
+    // AutoImport({
+    //   resolvers: [ElementPlusResolver()],
+    // }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
   ],
   // 静态资源服务的文件夹
   publicDir: 'assets',
@@ -38,7 +46,7 @@ export default defineConfig({
   css:{
     preprocessorOptions:{
       scss:{
-        additionalData:'@import "@/assets/style/mian.scss";'
+        additionalData:'@import "@/assets/style/main.scss";'
       }
     }
   },

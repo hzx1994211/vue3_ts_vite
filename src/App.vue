@@ -2,10 +2,10 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-18 16:44:51
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-21 16:38:41
+ * @LastEditTime: 2022-04-22 15:14:38
 -->
 <template>
-  <RouterView />
+  <router-view />
 </template>
 
 <style>
