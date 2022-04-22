@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-21 16:21:11
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-22 16:37:02
+ * @LastEditTime: 2022-04-22 16:39:05
 -->
 <template>
   <div class="app-wrapper">
@@ -46,7 +46,7 @@ const fixedHeader = ref(true);
     box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
   }
   .sidebar {
-    min-height: calc(100vh - 66px);
+    min-height: calc(100vh - 60px);
     width: 200px;
     background-color: #fff;
     box-shadow: 0px 0 6px rgb(41 7 0 / 15%);
