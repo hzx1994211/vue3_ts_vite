@@ -2,21 +2,31 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-21 16:21:11
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-22 15:50:44
+ * @LastEditTime: 2022-04-22 16:37:02
 -->
 <template>
   <div class="app-wrapper">
-    <!-- <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" /> -->
-    <!-- 左侧 -->
-    <sidebar class="sidebar-container" />
-    <div class="main-container">
-      <div :class="{'fixed-header':fixedHeader}">
-        <!-- 头部/面包屑 -->
-        <navbar />
-      </div>
-      <!-- 渲染内容 -->
-      <app-main />
-    </div>
+    <el-container>
+      <el-header>
+        <!-- {'fixed-header':fixedHeader} -->
+        <div :class="['navbar']">
+          <!-- 头部/面包屑 -->
+          <navbar />
+        </div>
+      </el-header>
+      <el-container>
+
+        <el-aside class="sidebar">
+          <!-- 左侧 -->
+          <sidebar class="sidebar-container" />
+        </el-aside>
+        <!-- <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" /> -->
+        <el-main>
+          <!-- 渲染内容 -->
+          <app-main />
+        </el-main>
+      </el-container>
+    </el-container>
   </div>
 </template>
 <script lang="ts" setup>
@@ -26,3 +36,20 @@ import sidebar from "./components/SideBar.vue";
 import { ref } from "vue";
 const fixedHeader = ref(true);
 </script>
+
+<style lang="scss" scoped>
+.app-wrapper {
+  .navbar {
+    height: 60px;
+    width: 100vw;
+    background-color: #7b1f20;
+    box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
+  }
+  .sidebar {
+    min-height: calc(100vh - 66px);
+    width: 200px;
+    background-color: #fff;
+    box-shadow: 0px 0 6px rgb(41 7 0 / 15%);
+  }
+}
+</style>
