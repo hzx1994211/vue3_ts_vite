@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-18 16:44:51
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-22 15:47:09
+ * @LastEditTime: 2022-04-26 14:45:32
  */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -15,7 +15,6 @@ import path from 'path'
 import viteCompression from 'vite-plugin-compression'
 // https://vitejs.dev/config/
 export default defineConfig({
-  //@ts-ignore
   root: process.cwd(),
   base: './', //打包路径
   plugins: [
@@ -73,4 +72,5 @@ export default defineConfig({
     https: false,
     proxy: {}
   },
+  
 })
