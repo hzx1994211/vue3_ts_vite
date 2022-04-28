@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-21 16:21:11
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-28 14:41:43
+ * @LastEditTime: 2022-04-28 15:17:03
 -->
 <template>
   <div class="app-wrapper">
@@ -19,8 +19,10 @@
           <sidebar class="sidebar-container" />
         </el-aside>
         <el-main>
-          <!-- 渲染内容 -->
-          <app-main />
+          <div class="app-wrapper-main">
+            <!-- 渲染内容 -->
+            <app-main />
+          </div>
         </el-main>
       </el-container>
     </el-container>
@@ -36,6 +38,7 @@ const fixedHeader = ref(true);
 
 <style lang="scss" scoped>
 .app-wrapper {
+  background: #f2f2f2;
   .navbar {
     height: 60px;
     width: 100vw;
@@ -47,6 +50,11 @@ const fixedHeader = ref(true);
     width: 200px;
     background-color: #fff;
     box-shadow: 0px 0 6px rgb(41 7 0 / 15%);
+  }
+  .app-wrapper-main {
+    background: #fff;
+    padding: 10px;
+    height: calc(100vh - 120px);
   }
 }
 </style>
