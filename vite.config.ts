@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-18 16:44:51
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-26 15:58:21
+ * @LastEditTime: 2022-04-28 10:33:30
  */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -68,6 +68,15 @@ export default defineConfig({
      },
     // 进行压缩计算
     brotliSize: false,
+    assetsDir: "static/assets", //指定生成的静态目录
+      /** 静态资源打包到 dist 下的不同目录 */
+      rollupOptions: {
+        output: {
+          chunkFileNames: "static/js/[name]-[hash].js",
+          entryFileNames: "static/js/[name]-[hash].js",
+          assetFileNames: "static/[ext]/[name]-[hash].[ext]"
+        }
+      }
   },
   //启动服务配置
   server: {
