@@ -2,25 +2,22 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-21 16:21:11
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-22 16:39:05
+ * @LastEditTime: 2022-04-28 14:41:43
 -->
 <template>
   <div class="app-wrapper">
     <el-container>
       <el-header>
-        <!-- {'fixed-header':fixedHeader} -->
         <div :class="['navbar']">
           <!-- 头部/面包屑 -->
           <navbar />
         </div>
       </el-header>
       <el-container>
-
         <el-aside class="sidebar">
           <!-- 左侧 -->
           <sidebar class="sidebar-container" />
         </el-aside>
-        <!-- <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" /> -->
         <el-main>
           <!-- 渲染内容 -->
           <app-main />

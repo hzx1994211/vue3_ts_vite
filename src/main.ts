@@ -2,8 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-18 16:44:51
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-22 16:32:30
- * @FilePath: \vite_vue3_ts\src\main.ts
+ * @LastEditTime: 2022-04-28 14:48:39
  */
 import { createApp } from 'vue'
 import App from './App.vue'

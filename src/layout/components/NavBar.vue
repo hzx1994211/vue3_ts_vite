@@ -2,13 +2,13 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-22 15:49:29
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-28 11:41:06
+ * @LastEditTime: 2022-04-28 14:50:26
 -->
 <template>
   <div class="nav-bar">
     <div class="nav-bar_logo">
       <router-link class="logo-link" to="/">
-        <img id="img_4B2FD02F58B7FAB0F3D4E" src="@/assets/logo_title.png" />
+        <img id="img_4B2FD02F58B7FAB0F3D4E" src="@/assets/image/logo_title.png" />
       </router-link>
     </div>
     <div class="nav-bar_box">
