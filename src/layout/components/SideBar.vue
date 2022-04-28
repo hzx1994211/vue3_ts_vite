@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-22 15:49:52
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-28 15:30:24
+ * @LastEditTime: 2022-04-28 15:45:24
 -->
 <template>
   <div class="side-bar">
@@ -20,10 +20,10 @@
           </el-icon>
           <span>用户管理</span>
         </template>
-        <el-menu-item index="1-1">用户列表</el-menu-item>
-        <el-menu-item index="1-2">用户信息</el-menu-item>
+        <el-menu-item class="submenu-title-noDropdown" index="1-1">用户列表</el-menu-item>
+        <el-menu-item class="submenu-title-noDropdown" index="1-2">用户信息</el-menu-item>
       </el-sub-menu>
-      <el-menu-item index="3" disabled>
+      <el-menu-item index="3">
         <el-icon>
           <document />
         </el-icon>
@@ -39,6 +39,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { Document, Location, Setting } from "@element-plus/icons-vue";
 import { reactive } from "vue";
 const menuList = reactive([]);
 const handleOpen = (key: string, keyPath: string[]) => {
@@ -53,6 +54,9 @@ const handleClose = (key: string, keyPath: string[]) => {
   width: 200px;
   .el-menu-vertical {
     min-height: calc(100vh - 60px);
+    .submenu-title-noDropdown {
+      padding-left: 70px !important;
+    }
   }
 }
 </style>
