@@ -2,12 +2,11 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-18 16:44:51
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-28 14:48:39
+ * @LastEditTime: 2022-04-28 17:06:43
  */
 import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/style/indes.scss'
-import './assets/style/element-ui.scss'
 import router from './router/index'
 import ElementPlus from 'element-plus'
 import { createPinia } from "pinia"

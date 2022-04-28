@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-22 14:44:07
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-28 16:34:17
+ * @LastEditTime: 2022-04-28 17:02:29
 -->
 <template>
   <div>
@@ -10,11 +10,26 @@
     <div @click="btnClick">点击事件</div>
     <div>
       <div class="home-title">
-        <div class="home-title-left">
-          左边
-        </div>
+        <el-row>
+          <el-col :span="6" :offset="2">
+            <div class="home-title-left">
+              <el-input v-model="input1" class="w-50 m-2" size="large" placeholder="Please Input" />
+            </div>
+          </el-col>
+          <el-col :span="6" :offset="2">
+            <div class="home-title-left">
+              <el-input v-model="input2" class="w-50 m-2" size="large" placeholder="Please Input" />
+            </div>
+          </el-col>
+          <el-col :span="6" :offset="2">
+            <div class="home-title-left">
+              <el-input v-model="input3" class="w-50 m-2" size="large" placeholder="Please Input" />
+            </div>
+          </el-col>
+        </el-row>
+
         <div class="home-title-right">
-          右边
+          <el-button type="primary" size="large" :loading="loading">查询</el-button>
         </div>
       </div>
       <div class="home-main">
@@ -31,6 +46,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { Search } from "@element-plus/icons-vue";
 import { Ref, ref, reactive } from "vue";
 const data = [
   {
@@ -61,7 +77,10 @@ const pageSize4 = ref(100);
 const small = ref(false);
 const background = ref(false);
 const disabled = ref(false);
-
+const input1 = ref("");
+const input2 = ref("");
+const input3 = ref("");
+const loading = ref(false);
 const handleSizeChange = (val: number) => {
   console.log(`${val} items per page`);
 };
@@ -80,6 +99,14 @@ function btnClick() {
   justify-content: space-between;
   & > div {
     flex: 1;
+  }
+  .home-title-left {
+    display: flex;
+  }
+  .home-title-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 }
 .home-pagination-block + .home-pagination-block {

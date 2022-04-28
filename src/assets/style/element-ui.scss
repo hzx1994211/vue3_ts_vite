@@ -3,11 +3,9 @@
 .el-breadcrumb__inner,
 .el-breadcrumb__inner a {
   font-weight: 400 !important;
-  color: #fff;
+  color: $activeTextColor;
 }
-.el-header{
-  padding: 0 !important;
-}
+
 .el-upload {
   input[type="file"] {
     display: none !important;
@@ -332,4 +330,7 @@
 }
 .el-popper .popper__arrow{
   display: none;
+}
+.el-header{
+  padding: 0 !important;
 }
