@@ -2,45 +2,36 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-22 14:44:07
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-28 17:02:29
+ * @LastEditTime: 2022-04-28 17:24:03
 -->
 <template>
   <div>
-    <div>{{num}}</div>
-    <div @click="btnClick">点击事件</div>
-    <div>
-      <div class="home-title">
-        <el-row>
-          <el-col :span="6" :offset="2">
-            <div class="home-title-left">
-              <el-input v-model="input1" class="w-50 m-2" size="large" placeholder="Please Input" />
-            </div>
-          </el-col>
-          <el-col :span="6" :offset="2">
-            <div class="home-title-left">
-              <el-input v-model="input2" class="w-50 m-2" size="large" placeholder="Please Input" />
-            </div>
-          </el-col>
-          <el-col :span="6" :offset="2">
-            <div class="home-title-left">
-              <el-input v-model="input3" class="w-50 m-2" size="large" placeholder="Please Input" />
-            </div>
-          </el-col>
-        </el-row>
+    <div class="home-title">
+      <el-row>
+        <el-col :span="6" :offset="2">
+          <el-input v-model="input1" size="large" class="w-50 m-2" placeholder="Please Input" />
+        </el-col>
+        <el-col :span="6" :offset="2">
+          <el-input v-model="input2" size="large" class="w-50 m-2" placeholder="Please Input" />
+        </el-col>
+        <el-col :span="6" :offset="2">
+          <el-input v-model="input3" size="large" class="w-50 m-2" placeholder="Please Input" />
+        </el-col>
+      </el-row>
 
-        <div class="home-title-right">
-          <el-button type="primary" size="large" :loading="loading">查询</el-button>
-        </div>
+      <div class="home-title_right">
+        <el-button type="primary" size="large" :loading="loading">查询</el-button>
+        <el-button style="margin-left:20px" size="large" type="primary" :loading="loading">重置</el-button>
       </div>
-      <div class="home-main">
-        <el-table :data="tableData" style="width: 100%">
-          <el-table-column prop="date" label="Date" width="180" />
-          <el-table-column prop="name" label="Name" width="180" />
-          <el-table-column prop="address" label="Address" />
-        </el-table>
-        <div class="home-pagination-block">
-          <el-pagination v-model:currentPage="currentPage4" v-model:page-size="pageSize4" :page-sizes="[100, 200, 300, 400]" :small="small" :disabled="disabled" :background="background" layout="total, sizes, prev, pager, next, jumper" :total="400" @size-change="handleSizeChange" @current-change="handleCurrentChange" />
-        </div>
+    </div>
+    <div class="home-main">
+      <el-table :data="tableData" style="width: 100%">
+        <el-table-column prop="date" label="Date" width="180" />
+        <el-table-column prop="name" label="Name" width="180" />
+        <el-table-column prop="address" label="Address" />
+      </el-table>
+      <div class="home-pagination_block">
+        <el-pagination v-model:currentPage="currentPage4" v-model:page-size="pageSize4" :page-sizes="[100, 200, 300, 400]" :small="small" :disabled="disabled" :background="background" layout="total, sizes, prev, pager, next, jumper" :total="400" @size-change="handleSizeChange" @current-change="handleCurrentChange" />
       </div>
     </div>
   </div>
@@ -95,21 +86,20 @@ function btnClick() {
 
 <style lang="scss" scoped>
 .home-title {
+  height: 80px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   & > div {
     flex: 1;
   }
-  .home-title-left {
-    display: flex;
-  }
-  .home-title-right {
+  .home-title_right {
     display: flex;
     justify-content: flex-end;
     align-items: center;
   }
 }
-.home-pagination-block + .home-pagination-block {
+.home-pagination_block + .home-pagination_block {
   margin-top: 10px;
 }
 </style>
