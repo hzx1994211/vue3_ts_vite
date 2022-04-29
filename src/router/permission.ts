@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-29 14:58:35
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-29 15:02:58
+ * @LastEditTime: 2022-04-29 16:18:03
  */
 import router from "@/router"
 import { RouteLocationNormalized } from "vue-router"
@@ -31,11 +31,13 @@ router.beforeEach(async (to: RouteLocationNormalized, _: RouteLocationNormalized
         try {
            // 注意：角色必须是一个数组！ 例如: ['admin'] 或 ['developer', 'editor']
            await userStore.getInfo()
+           console.log(userStore.roles,'----userStore.roles');
+           
            const roles = userStore.roles
            // 根据角色生成可访问的 routes（可访问路由 = 常驻路由 + 有访问权限的动态路由）
            permissionStore.setRoutes(roles)
           // 将'有访问权限的动态路由' 添加到 router 中
-          permissionStore.dynamicRoutes.forEach((route) => {
+          permissionStore.dynamicRoutes.forEach((route:any) => {
             router.addRoute(route)
           })
           // 确保添加路由已完成
@@ -43,8 +45,8 @@ router.beforeEach(async (to: RouteLocationNormalized, _: RouteLocationNormalized
           next({ ...to, replace: true })
         } catch (err: any) {
           // 过程中发生任何错误，都直接重置 token，并重定向到登录页面
-          userStore.resetToken()
-          ElMessage.error(err.message || "路由守卫过程发生错误")
+          userStore.resetToken()        
+          // ElMessage.error(err.message || "路由守卫过程发生错误")
           next("/login")
           NProgress.done()
         }

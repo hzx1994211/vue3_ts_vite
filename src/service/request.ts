@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-18 17:07:53
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-29 16:06:58
+ * @LastEditTime: 2022-04-29 16:20:09
  * @FilePath: \vite_vue3_ts\src\service\request.ts
  */
 import axios, { AxiosRequestConfig } from 'axios'
@@ -18,7 +18,8 @@ axios.interceptors.request.use(
     const token = sessionStorage.getItem('token')
     if (token) {
       //@ts-ignore
-      config.headers.token = token
+      config.headers['X-Access-Token'] = token
+      // config.headers.token = token
     }
     return config
   },

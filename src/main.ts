@@ -2,12 +2,13 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-18 16:44:51
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-29 11:40:25
+ * @LastEditTime: 2022-04-29 16:11:57
  */
 import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/style/indes.scss'
 import router from './router/index'
+import './router/permission'
 import ElementPlus from 'element-plus'
 import store from './store'
 
