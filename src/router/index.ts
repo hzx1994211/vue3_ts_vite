@@ -2,14 +2,14 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-18 17:01:37
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-29 14:47:32
+ * @LastEditTime: 2022-04-29 15:58:45
  * @FilePath: \vite_vue3_ts\src\router\router.ts
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
 import charts from './modules/charts'
 //静态路由
-const constantRoutes: Array<RouteRecordRaw> = [
+export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'Login',
@@ -114,4 +114,21 @@ const router = createRouter({
   routes:constantRoutes,
 })
 
+
+
+/** 重置路由 */
+export function resetRouter() {
+  // 注意：所有动态路由路由必须带有 name 属性，否则可能会不能完全重置干净
+  try {
+    router.getRoutes().forEach((route) => {
+      const { name, meta } = route
+      if (name && meta.roles?.length) {
+        router.hasRoute(name) && router.removeRoute(name)
+      }
+    })
+  } catch (error) {
+    // 强制刷新浏览器，不过体验不是很好
+    window.location.reload()
+  }
+}
 export default router

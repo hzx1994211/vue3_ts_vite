@@ -2,14 +2,15 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-18 17:07:53
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-29 14:29:40
+ * @LastEditTime: 2022-04-29 16:06:58
  * @FilePath: \vite_vue3_ts\src\service\request.ts
  */
 import axios, { AxiosRequestConfig } from 'axios'
 import NProgress from 'nprogress'
 import { ElMessage } from "element-plus"
+
 // 设置请求头和请求路径
-axios.defaults.baseURL = '/api'
+axios.defaults.baseURL = import.meta.env.VITE_APP_WEB_URL,
 axios.defaults.timeout = 60000
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
 axios.interceptors.request.use(
@@ -29,9 +30,10 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   (response) => {
     // apiData 是 api 返回的数据
-    const apiData = response.data as any
+    // const apiData = response.data as any
+    const apiData = response
     // 这个 code 是和后端约定的业务 code
-    const code = apiData.code
+    const code = apiData.data.code
     // 如果没有 code, 代表这不是项目后端开发的 api
     if (code === undefined) {
       ElMessage.error("非本系统的接口")
@@ -46,7 +48,7 @@ axios.interceptors.response.use(
           return apiData
         default:
           // 不是正确的 code
-          ElMessage.error(apiData.msg || "Error")
+          ElMessage.error(apiData.data.msg || "Error")
           return Promise.reject(new Error("Error"))
       }
     }

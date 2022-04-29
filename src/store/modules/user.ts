@@ -2,8 +2,9 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-29 15:05:01
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-29 15:07:17
+ * @LastEditTime: 2022-04-29 16:08:33
  */
+//@ts-nocheck
 import store from "@/store"
 import { defineStore } from "pinia"
 import { usePermissionStore } from "./permission"
@@ -36,10 +37,10 @@ export const useUserStore = defineStore({
           username: userInfo.username.trim(),
           password: userInfo.password
         })
-          .then((res: any) => {
-            sessionStorage.setItem('token',res.data.accessToken)
-            this.token = res.data.accessToken
-            resolve(true)
+          .then((res: any) => {        
+            sessionStorage.setItem('token',res.accessToken)
+            this.token = res.accessToken
+            resolve(res)
           })
           .catch((error:any) => {
             reject(error)
