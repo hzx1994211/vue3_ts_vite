@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-05-03 09:32:16
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-05-03 14:54:21
+ * @LastEditTime: 2022-05-03 15:24:39
 -->
 <template>
   <!-- 'simple-mode': isCollapse,  -->
@@ -18,6 +18,7 @@
         </el-menu-item>
       </SidebarItemLink>
     </template>
+
     <el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template #title>
         <svg-icon v-if="item.meta && item.meta.icon" :name="String(item.meta.icon)" />

@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-18 17:01:37
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-05-03 13:54:04
+ * @LastEditTime: 2022-05-03 15:28:53
  * @FilePath: \vite_vue3_ts\src\router\router.ts
  */
 import { createRouter, createWebHistory, RouteRecordRaw,createWebHashHistory  } from 'vue-router'
@@ -20,12 +20,15 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     name: 'main',
     component: Layout,
     redirect: { name: 'home' },
-    meta: { title: "首页" },
     children:[
       {
         name: 'home',
-        path: '/home',
+        path: 'home',
         component: () => import('@/pages/home/index.vue'),
+        meta: { 
+          title: "首页",
+          roles: ["admin", "editor"],
+        },
       }
     ]
   },
