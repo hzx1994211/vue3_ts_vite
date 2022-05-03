@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-05-03 09:32:16
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-05-03 11:51:44
+ * @LastEditTime: 2022-05-03 11:57:24
 -->
 <template>
   <!-- 'simple-mode': isCollapse,  -->
@@ -54,9 +54,10 @@ const props = defineProps({
     required: true,
   },
 });
-const alwaysShowRootMenu = computed(() => {
-  return !!(props.item.meta && props.item.meta.alwaysShow);
-});
+// const alwaysShowRootMenu = computed(() => {
+//   return !!(props.item.meta && props.item.meta.alwaysShow);
+// });
+//过滤不需要展示在菜单栏的路由
 const showingChildNumber = computed(() => {
   if (props.item.children) {
     const showingChildren = props.item.children.filter((item) => {
@@ -66,6 +67,7 @@ const showingChildNumber = computed(() => {
   }
   return 0;
 });
+//过滤只有一个菜单栏的路由
 const theOnlyOneChild = computed(() => {
   if (showingChildNumber.value > 1) {
     return null;
@@ -82,7 +84,6 @@ const theOnlyOneChild = computed(() => {
   return { ...props.item, path: "" };
 });
 console.log(theOnlyOneChild, "---theOnlyOneChild");
-
 const resolvePath = (routePath: string) => {
   if (isExternal(routePath)) {
     return routePath;
