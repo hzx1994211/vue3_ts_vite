@@ -2,11 +2,11 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-18 17:01:37
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-05-03 11:49:19
+ * @LastEditTime: 2022-05-03 13:54:04
  * @FilePath: \vite_vue3_ts\src\router\router.ts
  */
 import { createRouter, createWebHistory, RouteRecordRaw,createWebHashHistory  } from 'vue-router'
-import Layout from '@/layout/index.vue'
+const Layout = () => import("@/layout/index.vue")
 import charts from './modules/charts'
 //静态路由
 export const constantRoutes: Array<RouteRecordRaw> = [
@@ -14,15 +14,6 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     path: '/login',
     name: 'Login',
     component: () => import('@/pages/login/Login.vue'), // 注意这里要带上 文件后缀.vue
-  },
-  {
-    path: "/:pathMatch(.*)*",
-    redirect:{name:'page404'},
-  },
-  {
-    path: '/404',
-    name: 'page404',
-    component: () => import('@/pages/404/index.vue'), 
   },
   {
     path: '/',
@@ -79,7 +70,16 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       }
     ]
   },
-  charts
+  charts,
+  {
+    path: "/:pathMatch(.*)*",
+    redirect:{name:'page404'},
+  },
+  {
+    path: '/404',
+    name: 'page404',
+    component: () => import('@/pages/404/index.vue'), 
+  },
   // {
   //   path: "/:pathMatch(.*)*", // 必须将 'ErrorPage' 路由放在最后, Must put the 'ErrorPage' route at the end
   //   component: Layout,
@@ -113,7 +113,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
 
 const router = createRouter({
   // createWebHashHistory  createWebHistory
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes:constantRoutes,
 })
 

@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-05-03 09:32:16
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-05-03 11:57:24
+ * @LastEditTime: 2022-05-03 14:54:21
 -->
 <template>
   <!-- 'simple-mode': isCollapse,  -->
@@ -83,7 +83,7 @@ const theOnlyOneChild = computed(() => {
   // because this.basePath already contains item's path information
   return { ...props.item, path: "" };
 });
-console.log(theOnlyOneChild, "---theOnlyOneChild");
+// console.log(theOnlyOneChild, "---theOnlyOneChild");
 const resolvePath = (routePath: string) => {
   if (isExternal(routePath)) {
     return routePath;

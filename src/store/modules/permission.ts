@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-29 14:48:10
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-29 16:23:27
+ * @LastEditTime: 2022-05-03 14:55:11
  */
 //@ts-ignore
 import store from "@/store"
@@ -64,7 +64,7 @@ export const usePermissionStore = defineStore({
       }
       this.routes = constantRoutes.concat(accessedRoutes)
       this.dynamicRoutes = accessedRoutes
-      console.log(accessedRoutes,'--dynamicRoutes',this.routes);
+      // console.log(accessedRoutes,'--dynamicRoutes',this.routes);
       
     }
   }
