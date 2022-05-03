@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-29 14:58:35
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-05-03 14:54:59
+ * @LastEditTime: 2022-05-03 15:41:11
  */
 import router from "@/router"
 import { RouteLocationNormalized } from "vue-router"
@@ -55,6 +55,8 @@ router.beforeEach(async (to: RouteLocationNormalized, _: RouteLocationNormalized
       }
     }
   } else {
+    console.log(to.path,'-----to.path');
+    
     // 如果没有 token
     if (whiteList.indexOf(to.path) !== -1) {
       // 如果在免登录的白名单中，则直接进入

@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-28 11:36:58
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-28 15:06:56
+ * @LastEditTime: 2022-05-03 15:46:18
 -->
 <template>
   <div class="user">
@@ -25,6 +25,8 @@
 
 <script lang="ts" setup>
 import { reactive } from "vue";
+import { useRouter } from "vue-router";
+import { useUserStore } from "@/store/modules/user";
 const menuList = [
   {
     label: "个人中心",
@@ -35,12 +37,16 @@ const menuList = [
     value: "out",
   },
 ];
+const store = useUserStore();
 const list = reactive(menuList);
 const user = reactive({
   name: "hzx",
 });
 function handleCommand(item: string | number | object) {
-  console.log(item, "--item");
+  if (item == "out") {
+    store.logout();
+    window.location.reload();
+  }
 }
 </script>
 <style lang="scss" scoped>

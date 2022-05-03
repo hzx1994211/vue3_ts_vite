@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-18 17:01:37
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-05-03 15:28:53
+ * @LastEditTime: 2022-05-03 15:45:19
  * @FilePath: \vite_vue3_ts\src\router\router.ts
  */
 import { createRouter, createWebHistory, RouteRecordRaw,createWebHashHistory  } from 'vue-router'
@@ -128,6 +128,7 @@ export function resetRouter() {
   try {
     router.getRoutes().forEach((route) => {
       const { name, meta } = route
+      //@ts-ignore
       if (name && meta.roles?.length) {
         router.hasRoute(name) && router.removeRoute(name)
       }
