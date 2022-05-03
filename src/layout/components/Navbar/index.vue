@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-22 15:49:29
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-28 14:50:26
+ * @LastEditTime: 2022-05-03 09:31:11
 -->
 <template>
   <div class="nav-bar">
@@ -23,8 +23,8 @@
 </template>
 <script lang="ts" setup>
 import { reactive } from "vue";
-import Breadcrumb from "./Breadcrumb/index.vue";
-import UserInfo from "./UserInfo/index.vue";
+import Breadcrumb from "../Breadcrumb/index.vue";
+import UserInfo from "../UserInfo/index.vue";
 const state = reactive({
   num: 0,
 });

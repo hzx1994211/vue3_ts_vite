@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-21 16:21:11
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-28 15:17:03
+ * @LastEditTime: 2022-05-03 11:41:55
 -->
 <template>
   <div class="app-wrapper">
@@ -30,10 +30,9 @@
 </template>
 <script lang="ts" setup>
 import appMain from "./components/AppMain.vue";
-import navbar from "./components/NavBar.vue";
-import sidebar from "./components/SideBar.vue";
+import navbar from "./components/NavBar/index.vue";
+import sidebar from "./components/Sidebar/index.vue";
 import { ref } from "vue";
-const fixedHeader = ref(true);
 </script>
 
 <style lang="scss" scoped>
