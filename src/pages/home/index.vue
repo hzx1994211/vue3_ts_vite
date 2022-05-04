@@ -2,7 +2,7 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-22 14:44:07
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-05-04 16:53:40
+ * @LastEditTime: 2022-05-04 17:31:32
 -->
 <template>
   <div>
@@ -74,7 +74,8 @@ const state = reactive({
   input2: "",
   input3: "",
   handleCurrentChange: (val: number) => {
-    console.log(`current page: ${val}`);
+    state.currentPage = val;
+    console.log(`current page: ${val}`, state.currentPage);
   },
   handleSizeChange: (val: number) => {
     console.log(`${val} items per page`);
