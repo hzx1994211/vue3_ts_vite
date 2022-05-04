@@ -81,7 +81,11 @@
 }
 
 // fix date-picker ui bug in filter-item
-.el-range-editor.el-input__inner {
+.el-input__inner, .el-button{
+  height: 32px !important;
+}
+.el-range-editor {
+  
   display: inline-flex !important;
 }
 
@@ -131,7 +135,7 @@
 .el-table__header-wrapper tr th {
   border-right: 1px solid #EDEDED;
 }
-.el-table__header-wrapper tr th:last-child, .el-table__header-wrapper tr th:nth-last-child(2){
+.el-table__header-wrapper tr th:last-child, .el-table__header-wrapper tr th:nth-last-child(1){
   border-right: none;
 }
 .el-table__body tr:last-child td{

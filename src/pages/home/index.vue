@@ -2,26 +2,26 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-22 14:44:07
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-05-04 17:31:32
+ * @LastEditTime: 2022-05-04 18:10:18
 -->
 <template>
   <div>
     <div class="home-title">
       <el-row>
-        <el-col :span="6" :offset="2">
-          <el-input v-model="state.input1" size="large" class="w-50 m-2" placeholder="Please Input" />
+        <el-col :span="6">
+          <el-input v-model="state.input1" class="w-50 m-2" placeholder="请输入人员名" />
         </el-col>
         <el-col :span="6" :offset="2">
-          <el-input v-model="state.input2" size="large" class="w-50 m-2" placeholder="Please Input" />
+          <el-input v-model="state.input2" class="w-50 m-2" placeholder="请输入查询条件" />
         </el-col>
         <el-col :span="6" :offset="2">
-          <el-input v-model="state.input3" size="large" class="w-50 m-2" placeholder="Please Input" />
+          <el-input v-model="state.input3" class="w-50 m-2" placeholder="请输入查询条件" />
         </el-col>
       </el-row>
 
       <div class="home-title_right">
-        <el-button type="primary" size="large" :loading="state.loading">查询</el-button>
-        <el-button style="margin-left:20px" size="large" type="primary" :loading="state.loading">重置</el-button>
+        <el-button type="primary" :loading="state.loading">查询</el-button>
+        <el-button style="margin-left:20px" type="primary" :loading="state.loading">重置</el-button>
       </div>
     </div>
     <div class="home-main">

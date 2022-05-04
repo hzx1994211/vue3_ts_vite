@@ -2,18 +2,23 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-21 16:49:24
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-22 15:49:09
+ * @LastEditTime: 2022-05-04 18:02:56
 -->
 <template>
-  <router-view v-slot="{ Component,route  }">
-    <transition>
-      <component :is="Component" :name="route.fullPath" />
-    </transition>
-  </router-view>
+  <div class="app-main">
+    <router-view v-slot="{ Component,route}">
+      <transition>
+        <component :is="Component" :name="route.fullPath" />
+      </transition>
+    </router-view>
+  </div>
 </template>
 
 
 <style lang="scss" scoped>
+.app-main {
+  padding: 20px;
+}
 /* 下滑 */
 .down-enter-active,
 .down-leave-active {
