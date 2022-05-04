@@ -2,36 +2,36 @@
  * @Author: huangzhenxiang
  * @Date: 2022-04-22 14:44:07
  * @LastEditors: huangzhenxiang
- * @LastEditTime: 2022-04-28 17:24:03
+ * @LastEditTime: 2022-05-04 16:53:40
 -->
 <template>
   <div>
     <div class="home-title">
       <el-row>
         <el-col :span="6" :offset="2">
-          <el-input v-model="input1" size="large" class="w-50 m-2" placeholder="Please Input" />
+          <el-input v-model="state.input1" size="large" class="w-50 m-2" placeholder="Please Input" />
         </el-col>
         <el-col :span="6" :offset="2">
-          <el-input v-model="input2" size="large" class="w-50 m-2" placeholder="Please Input" />
+          <el-input v-model="state.input2" size="large" class="w-50 m-2" placeholder="Please Input" />
         </el-col>
         <el-col :span="6" :offset="2">
-          <el-input v-model="input3" size="large" class="w-50 m-2" placeholder="Please Input" />
+          <el-input v-model="state.input3" size="large" class="w-50 m-2" placeholder="Please Input" />
         </el-col>
       </el-row>
 
       <div class="home-title_right">
-        <el-button type="primary" size="large" :loading="loading">查询</el-button>
-        <el-button style="margin-left:20px" size="large" type="primary" :loading="loading">重置</el-button>
+        <el-button type="primary" size="large" :loading="state.loading">查询</el-button>
+        <el-button style="margin-left:20px" size="large" type="primary" :loading="state.loading">重置</el-button>
       </div>
     </div>
     <div class="home-main">
-      <el-table :data="tableData" style="width: 100%">
+      <el-table :data="state.tableData" style="width: 100%">
         <el-table-column prop="date" label="Date" width="180" />
         <el-table-column prop="name" label="Name" width="180" />
         <el-table-column prop="address" label="Address" />
       </el-table>
       <div class="home-pagination_block">
-        <el-pagination v-model:currentPage="currentPage4" v-model:page-size="pageSize4" :page-sizes="[100, 200, 300, 400]" :small="small" :disabled="disabled" :background="background" layout="total, sizes, prev, pager, next, jumper" :total="400" @size-change="handleSizeChange" @current-change="handleCurrentChange" />
+        <el-pagination v-model:currentPage="state.currentPage" v-model:page-size="state.pageSize" :page-sizes="[100, 200, 300, 400]" :small="state.small" :disabled="state.disabled" :background="state.background" layout="total, sizes, prev, pager, next, jumper" :total="400" @size-change="state.handleSizeChange" @current-change="state.handleCurrentChange" />
       </div>
     </div>
   </div>
@@ -61,27 +61,25 @@ const data = [
     address: "No. 189, Grove St, Los Angeles",
   },
 ];
-const tableData = reactive(data);
-const num = ref(0);
-const currentPage4 = ref(4);
-const pageSize4 = ref(100);
-const small = ref(false);
-const background = ref(false);
-const disabled = ref(false);
-const input1 = ref("");
-const input2 = ref("");
-const input3 = ref("");
-const loading = ref(false);
-const handleSizeChange = (val: number) => {
-  console.log(`${val} items per page`);
-};
-const handleCurrentChange = (val: number) => {
-  console.log(`current page: ${val}`);
-};
-function btnClick() {
-  num.value++;
-  console.log(num, "----num");
-}
+const state = reactive({
+  num: 0,
+  disabled: false,
+  small: false,
+  background: false,
+  loading: false,
+  tableData: data,
+  currentPage: 4,
+  pageSize: 100,
+  input1: "",
+  input2: "",
+  input3: "",
+  handleCurrentChange: (val: number) => {
+    console.log(`current page: ${val}`);
+  },
+  handleSizeChange: (val: number) => {
+    console.log(`${val} items per page`);
+  },
+});
 </script>
 
 <style lang="scss" scoped>
